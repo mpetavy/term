@@ -1,4 +1,4 @@
-module calc
+module term
 
 go 1.19
 
