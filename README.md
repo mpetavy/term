@@ -1,8 +1,8 @@
-## CALC
+## TERM
 
-### Project description of CALC
+### Project description of TERM
 
-This is the automatic generated project description of CALC. Stay tuned for updates :-)
+This is the automatic generated project description of TERM. Stay tuned for updates :-)
 
 ### License
 
