@@ -3,6 +3,12 @@ module term
 go 1.19
 
 require (
+	github.com/mpetavy/common v1.6.0
+	github.com/stretchr/testify v1.8.2
+	golang.org/x/exp v0.0.0-20221006183845-316c7553db56
+)
+
+require (
 	cloud.google.com/go v0.88.0 // indirect
 	github.com/beevik/etree v1.1.0 // indirect
 	github.com/creack/goselect v0.1.2 // indirect
@@ -33,19 +39,16 @@ require (
 	github.com/labstack/gommon v0.3.1 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
-	github.com/mpetavy/common v1.5.66 // indirect
 	github.com/ompluscator/dynamic-struct v1.4.0 // indirect
 	github.com/paulrosania/go-charset v0.0.0-20190326053356-55c9d7a5834c // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/quasoft/memstore v0.0.0-20191010062613-2bce066d2b0b // indirect
-	github.com/stretchr/testify v1.8.2 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.1 // indirect
 	github.com/xo/terminfo v0.0.0-20210125001918-ca9a967f8778 // indirect
 	go.bug.st/serial v1.5.0 // indirect
 	go.opencensus.io v0.23.0 // indirect
 	golang.org/x/crypto v0.0.0-20220926161630-eccd6366d1be // indirect
-	golang.org/x/exp v0.0.0-20221006183845-316c7553db56 // indirect
 	golang.org/x/net v0.0.0-20220930213112-107f3e3c3b0b // indirect
 	golang.org/x/oauth2 v0.0.0-20210628180205-a41e5a781914 // indirect
 	golang.org/x/sys v0.5.0 // indirect
