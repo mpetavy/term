@@ -1,8 +1,10 @@
 package main
 
 import (
+	"github.com/mpetavy/common"
 	"github.com/stretchr/testify/assert"
 	"strconv"
+	"strings"
 	"testing"
 )
 
@@ -89,4 +91,33 @@ func Test_calculate(t *testing.T) {
 			assert.Equal(t, tt.want, got, "calc(%s) got = %v, want %v", tt.term, got, tt.want)
 		})
 	}
+
+	sb := strings.Builder{}
+
+	for i, t := range list {
+		if i > 0 {
+			r := common.Rnd(4)
+
+			switch r {
+			case 0:
+				sb.WriteString("+")
+			case 1:
+				sb.WriteString("-")
+			case 2:
+				sb.WriteString("*")
+			case 3:
+				sb.WriteString("/")
+			}
+		}
+
+		sb.WriteString(t.term)
+	}
+
+	s := sb.String()
+
+	term, err := NewTerm(s)
+	assert.NoError(t, err)
+
+	_, err = term.Calc()
+	assert.NoError(t, err)
 }

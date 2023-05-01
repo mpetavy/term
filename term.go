@@ -145,6 +145,20 @@ func (term *Term) Calc() (float64, error) {
 		}
 
 		number := term.Text
+
+		if strings.HasPrefix(number, "--") {
+			number = fmt.Sprintf("+%s", number[2:])
+		}
+		if strings.HasPrefix(number, "+-") {
+			number = fmt.Sprintf("-%s", number[2:])
+		}
+		if strings.HasPrefix(number, "-+") {
+			number = fmt.Sprintf("+%s", number[2:])
+		}
+		if strings.HasPrefix(number, "++") {
+			number = fmt.Sprintf("+%s", number[2:])
+		}
+
 		if !isNumeric(number[:1]) && !isSign(number[:1]) {
 			number = number[1:]
 		}
