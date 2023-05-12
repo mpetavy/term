@@ -45,7 +45,7 @@ func isLine(txt string) bool {
 type Term struct {
 	Text     string
 	IsParsed bool
-	Term     float64
+	Result   float64
 	Terms    []Term
 }
 
@@ -106,6 +106,12 @@ loop:
 		case ch == "(":
 			operator := v.Text
 
+			if isNumeric(operator) {
+				registerTerm()
+
+				operator = "*"
+			}
+
 			var err error
 
 			v, i, err = parse(text, i+1)
@@ -141,7 +147,7 @@ loop:
 func (term *Term) Calc() (float64, error) {
 	if len(term.Terms) == 0 {
 		if term.IsParsed {
-			return term.Term, nil
+			return term.Result, nil
 		}
 
 		number := term.Text
@@ -165,14 +171,24 @@ func (term *Term) Calc() (float64, error) {
 
 		var err error
 
-		term.Term, err = strconv.ParseFloat(number, 64)
+		term.Result, err = strconv.ParseFloat(number, 64)
 		if common.Error(err) {
 			return 0, err
 		}
 
 		term.IsParsed = true
 
-		return term.Term, nil
+		return term.Result, nil
+	}
+
+	if len(term.Terms) == 1 {
+		var err error
+
+		term.IsParsed = true
+		term.Result, err = term.Terms[0].Calc()
+		if common.Error(err) {
+			return 0, err
+		}
 	}
 
 	for operatorGroup := 0; operatorGroup < 3; operatorGroup++ {
@@ -231,7 +247,7 @@ func (term *Term) Calc() (float64, error) {
 					newTerm.Text = fmt.Sprintf("%v", result)
 				}
 				newTerm.IsParsed = true
-				newTerm.Term = result
+				newTerm.Result = result
 
 				term.Terms = slices.Delete(term.Terms, i, i+c)
 				term.Terms = slices.Insert(term.Terms, i, newTerm)
@@ -244,8 +260,8 @@ func (term *Term) Calc() (float64, error) {
 	}
 
 	if term.Text != "" && term.Operator() == "-" {
-		term.Terms[0].Term = term.Terms[0].Term * -1
+		term.Terms[0].Result = term.Terms[0].Result * -1
 	}
 
-	return term.Terms[0].Term, nil
+	return term.Terms[0].Result, nil
 }

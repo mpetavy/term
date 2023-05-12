@@ -13,6 +13,7 @@ func Test_calculate(t *testing.T) {
 		term   string
 		result float64
 	}{
+		{"2(3)", 6},
 		{"1-(12*3-(11+5))/8", -1.5},
 		{"-3*-5", 15},
 		{"2*(3+1)/(6-2)-1", 1},
