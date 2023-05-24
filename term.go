@@ -189,6 +189,8 @@ func (term *Term) Calc() (float64, error) {
 		if common.Error(err) {
 			return 0, err
 		}
+
+		return term.Result, nil
 	}
 
 	for operatorGroup := 0; operatorGroup < 3; operatorGroup++ {
