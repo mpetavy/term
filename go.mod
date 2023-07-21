@@ -3,7 +3,7 @@ module term
 go 1.20
 
 require (
-	github.com/mpetavy/common v1.6.4
+	github.com/mpetavy/common v1.6.5
 	github.com/stretchr/testify v1.8.2
 	golang.org/x/exp v0.0.0-20230425010034-47ecfdc1ba53
 )
