@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/mpetavy/common"
-	"golang.org/x/exp/slices"
 	"math"
 	"strconv"
 	"strings"
@@ -251,8 +250,8 @@ func (term *Term) Calc() (float64, error) {
 				newTerm.IsParsed = true
 				newTerm.Result = result
 
-				term.Terms = slices.Delete(term.Terms, i, i+c)
-				term.Terms = slices.Insert(term.Terms, i, newTerm)
+				term.Terms = common.SliceDeleteRange(term.Terms, i, i+c)
+				term.Terms = common.SliceInsert(term.Terms, i, newTerm)
 
 				continue
 			}

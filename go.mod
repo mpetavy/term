@@ -5,9 +5,8 @@ go 1.21
 toolchain go1.21.1
 
 require (
-	github.com/mpetavy/common v1.6.14
+	github.com/mpetavy/common v1.6.15
 	github.com/stretchr/testify v1.8.2
-	golang.org/x/exp v0.0.0-20230425010034-47ecfdc1ba53
 )
 
 require (
@@ -55,6 +54,7 @@ require (
 	go.bug.st/serial v1.5.0 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	golang.org/x/crypto v0.9.0 // indirect
+	golang.org/x/exp v0.0.0-20230425010034-47ecfdc1ba53 // indirect
 	golang.org/x/net v0.10.0 // indirect
 	golang.org/x/oauth2 v0.8.0 // indirect
 	golang.org/x/sys v0.8.0 // indirect
