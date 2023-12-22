@@ -1,6 +1,7 @@
 package main
 
 import (
+	"embed"
 	"flag"
 	"fmt"
 	"github.com/mpetavy/common"
@@ -11,8 +12,11 @@ var (
 	ftext = flag.String("t", "", "term")
 )
 
+//go:embed go.mod
+var resources embed.FS
+
 func init() {
-	common.Init("term", "", "", "", "2018", "test", "mpetavy", fmt.Sprintf("https://github.com/mpetavy/%s", common.Title()), common.APACHE, nil, nil, nil, run, 0)
+	common.Init("", "", "", "", "test", "", "", "", &resources, nil, nil, run, 0)
 }
 
 func run() error {

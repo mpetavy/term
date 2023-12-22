@@ -5,7 +5,7 @@ go 1.21
 toolchain go1.21.1
 
 require (
-	github.com/mpetavy/common v1.6.33
+	github.com/mpetavy/common v1.6.36
 	github.com/stretchr/testify v1.8.2
 )
 
@@ -68,3 +68,5 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	software.sslmate.com/src/go-pkcs12 v0.2.0 // indirect
 )
+
+//replace github.com/mpetavy/common => ../common
