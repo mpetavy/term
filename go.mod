@@ -1,11 +1,11 @@
-module term
+module github.com/mpetavy/term
 
 go 1.21
 
 toolchain go1.21.1
 
 require (
-	github.com/mpetavy/common v1.6.38
+	github.com/mpetavy/common v1.6.41
 	github.com/stretchr/testify v1.8.2
 )
 
