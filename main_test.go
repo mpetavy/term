@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/mpetavy/common"
-	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 	"strconv"
 	"strings"
 	"testing"
@@ -84,12 +84,12 @@ func Test_calculate(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			term, err := NewTerm(tt.term)
-			assert.NoError(t, err)
+			require.NoError(t, err)
 
 			got, err := term.Calc()
-			assert.NoError(t, err)
+			require.NoError(t, err)
 
-			assert.Equal(t, tt.want, got, "calc(%s) got = %v, want %v", tt.term, got, tt.want)
+			require.Equal(t, tt.want, got, "calc(%s) got = %v, want %v", tt.term, got, tt.want)
 		})
 	}
 
@@ -117,8 +117,8 @@ func Test_calculate(t *testing.T) {
 	s := sb.String()
 
 	term, err := NewTerm(s)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 
 	_, err = term.Calc()
-	assert.NoError(t, err)
+	require.NoError(t, err)
 }
