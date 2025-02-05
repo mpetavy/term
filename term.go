@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/mpetavy/common"
 	"math"
+	"slices"
 	"strconv"
 	"strings"
 )
@@ -251,7 +252,7 @@ func (term *Term) Calc() (float64, error) {
 				newTerm.Result = result
 
 				term.Terms = common.SliceDeleteRange(term.Terms, i, i+c)
-				term.Terms = common.SliceInsert(term.Terms, i, newTerm)
+				term.Terms = slices.Insert(term.Terms, i, newTerm)
 
 				continue
 			}
