@@ -251,7 +251,7 @@ func (term *Term) Calc() (float64, error) {
 				newTerm.IsParsed = true
 				newTerm.Result = result
 
-				term.Terms = common.SliceDeleteRange(term.Terms, i, i+c)
+				term.Terms = slices.Delete(term.Terms, i, i+c)
 				term.Terms = slices.Insert(term.Terms, i, newTerm)
 
 				continue
